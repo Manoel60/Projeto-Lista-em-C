@@ -68,7 +68,16 @@ Lista* lst_remove_rec(Lista* l, int info)
 // Concatena duas listas
 Lista* lst_conc(Lista* l1, Lista* l2)
 {
-	Lista* lAux[2] = {l1,l2};
+	Lista* lAux = l1;
+	
+	while(lAux->prox != NULL)
+	{
+		lAux = lAux->prox;		
+	}	
+	
+	lAux->prox = l2;
+	
+	return  l1;
 }
 // liberar a fila
 void lst_libera(Lista* l)

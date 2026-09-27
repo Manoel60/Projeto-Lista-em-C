@@ -40,5 +40,8 @@ Lista* lst_diferenca(Lista* l1, Lista* l2);
 // Função buscar
 Lista* lst_busca(Lista* l, int  info);
 
+// Concatena duas listas
+Lista* lst_conc(Lista* l1, Lista* l2);
+
 // Função leberar
 void lst_libera(Lista* l);

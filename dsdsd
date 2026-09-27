@@ -1,0 +1,63 @@
+[1mdiff --git a/lista.c b/lista.c[m
+[1mindex 466101f..a590256 100644[m
+[1m--- a/lista.c[m
+[1m+++ b/lista.c[m
+[36m@@ -68,7 +68,16 @@[m [mLista* lst_remove_rec(Lista* l, int info)[m
+ // Concatena duas listas[m
+ Lista* lst_conc(Lista* l1, Lista* l2)[m
+ {[m
+[31m-	Lista* lAux[2] = {l1,l2};[m
+[32m+[m	[32mLista* lAux = l1;[m
+[32m+[m[41m	[m
+[32m+[m	[32mwhile(lAux->prox != NULL)[m
+[32m+[m	[32m{[m
+[32m+[m		[32mlAux = lAux->prox;[m[41m		[m
+[32m+[m	[32m}[m[41m	[m
+[32m+[m[41m	[m
+[32m+[m	[32mlAux->prox = l2;[m
+[32m+[m[41m	[m
+[32m+[m	[32mreturn  l1;[m
+ }[m
+ // liberar a fila[m
+ void lst_libera(Lista* l)[m
+[1mdiff --git a/lista.h b/lista.h[m
+[1mindex 94b6369..f9a24c5 100644[m
+[1m--- a/lista.h[m
+[1m+++ b/lista.h[m
+[36m@@ -40,5 +40,8 @@[m [mLista* lst_diferenca(Lista* l1, Lista* l2);[m
+ // Função buscar[m
+ Lista* lst_busca(Lista* l, int  info);[m
+ [m
+[32m+[m[32m// Concatena duas listas[m
+[32m+[m[32mLista* lst_conc(Lista* l1, Lista* l2);[m
+[32m+[m
+ // Função leberar[m
+ void lst_libera(Lista* l);[m
+[1mdiff --git a/lista.o b/lista.o[m
+[1mindex 88f765d..9d680cc 100644[m
+Binary files a/lista.o and b/lista.o differ
+[1mdiff --git a/lista_m.c b/lista_m.c[m
+[1mindex b9b9e80..7cf6af7 100644[m
+[1m--- a/lista_m.c[m
+[1m+++ b/lista_m.c[m
+[36m@@ -6,9 +6,13 @@[m
+ int main ()[m
+ {[m
+     Lista* l1 = lst_cria();[m
+[32m+[m[32m    Lista* l2 = lst_cria();[m
+     l1 = lst_insere(l1, 20);[m
+[32m+[m[32m    l2 = lst_insere(l2, 202);[m
+     [m
+     lst_imprime(l1);[m
+[31m-   [m
+[32m+[m[41m    [m
+[32m+[m[32m    lst_imprime(lst_conc(l1, l2));[m
+[32m+[m[41m    [m
+     return 0;[m
+ }[m
+[1mdiff --git a/lista_m.o b/lista_m.o[m
+[1mindex 7002bc6..f7f231e 100644[m
+Binary files a/lista_m.o and b/lista_m.o differ
+[1mdiff --git a/tadlista.exe b/tadlista.exe[m
+[1mindex af4551e..d523171 100644[m
+Binary files a/tadlista.exe and b/tadlista.exe differ
