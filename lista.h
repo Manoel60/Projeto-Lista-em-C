@@ -14,7 +14,10 @@ Lista* lst_insere(Lista* l, int info);
 void lst_imprime(Lista* l);
 
 // Função para imprimir de forma recursiva
-void lst_imprime_rec(Lista* l);
+void lst_imprime_rec( Lista* l  );
+
+// Função imprimir de forma recursiva invertidamente
+void lst_imprime_invertida_rec( Lista* l );
 
 // Função  para remover de forma recursiva
 Lista* lst_remove_rec(Lista* l, int info);
